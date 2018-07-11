@@ -1,0 +1,1 @@
+CultistMovementState = CultistMovement.Firing; //you interrupted them, prepare for the projectile barrage

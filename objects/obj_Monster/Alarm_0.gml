@@ -1,0 +1,1 @@
+CanAttack = true; //attack cooldown is over

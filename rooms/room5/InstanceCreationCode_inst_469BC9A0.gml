@@ -1,0 +1,1 @@
+Message = "There seems to be a note hidden among the bones.\nRead Note (E)";

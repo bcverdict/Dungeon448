@@ -1,0 +1,208 @@
+/*@description Handles player fireball shooting and changes sprites when the player turns around.
+*@param none
+*@return none
+*/
+scr_player_default()
+
+/*@description If the player hitbox collides with the enemy hurtbox, the enemy health is decreased
+*@param none
+*@return none
+*/
+scr_player_attack()
+
+/*@description Handles player speed, movement, and collision.
+*@param none
+*@return none
+*/
+scr_player_movement()
+
+/*@description Draws the player health bar
+*@param none
+*@return none
+*/
+scr_slider()
+
+/*@description Controls the cooldown box for the player's fireball ability
+*@param center x
+*@param center y
+*@param length
+*@param width
+*@param cooldowntime
+*@param max count
+*@return none
+*/
+scr_cooldown_box()
+
+/*@description Creates a button at the specified coordinates
+*@param x coordinate
+*@param y coordinate
+*@param width
+*@param height
+*@param index
+*@param isPressed
+*@param text
+*@return none
+*/
+scr_button()
+
+/*@description Draws text on the screen at the specified coordinates
+*@param x coordinate
+*@param y coordinate
+*@param text
+*@param text color
+*@param outline color
+*@return none
+*/
+scr_draw_outlined_text
+
+/*@description Handles monster sprites and movement paths
+*@param none
+*@return none
+*/
+scr_monster_movement()
+
+/*@description Adds an item the the player's inventory array
+*@param object_index - The object index of the item being added
+*@param self - A copy of the item that the player collided with
+*@return 
+*/
+scr_inventory_add
+
+/*@description Creates an inventory array of the given size 
+*@param size
+*@return none
+*/
+scr_inventory_create()
+
+/*@description Draws the inventory menu, centered at the given coordinates
+*@param x coordinate
+*@param y coordinate
+*@return none
+*/
+scr_inventory_menu()
+
+/*@description Creates the title menu and its buttons
+*@param none
+*@return none
+*/
+scr_title_menu()
+
+/*@description Draws the character selection screen and allows the user to select one
+*@param buttonPressed index
+*@return none
+*/
+scr_char_select()
+
+/*@description Draws the pause menu the its buttons.
+*@param none
+*@return none
+*/
+scr_pause_menu
+
+/*@description Displays all of the user controls.
+*@param none
+*@return none
+*/
+scr_help_screen()
+
+/*@description Darkens the screen the draws the death screen and its buttons.
+*@param none
+*@return none
+*/
+scr_death_menu()
+
+/*@description Deactivates the lowest bridge collision layer and activates the lowest bridge tile layer.
+*@param none
+*@return none
+*/
+scr_bridge()
+
+/*@description Fades out and fades back in as the player leaves one room and enters another.
+*@param none
+*@return none
+*/
+scr_room_transition()
+
+///@description A solid collision object
+obj_Solid
+
+///@description Warps the player to the desired room
+obj_Warp
+
+///@description The players hitbox where damage is dealt
+obj_Hitbox
+
+///@description The players hurtbox where damage is taken
+obj_Char_Hurtbox
+
+///@description The monsters hitbox where melee damage is dealt
+obj_Enemy_Hitbox
+
+///@description The monsters hurtbox where damage is taken
+obj_Enemy_Hurtbox
+
+///@description The player object
+obj_Player
+
+///@description The players fireball projectile
+obj_PlayerProjectile
+
+///@description The enemy monster object
+obj_Monster
+
+///@description The enemy slime object, inherits from obj_Monster
+obj_Slime
+
+///@description The enemy slime boss object, inherits from obj_Monster
+obj_SlimeBoss
+
+///@description The enemy frankenstein object, inherits from obj_Monster
+obj_Frankenstein
+
+///@description The enemy cultist object, inherits from obj_Monster
+obj_Cultist
+
+///@description The monsters projectile, changes based on which monster spawns it
+obj_MonsterProjectile
+
+///@description The boss' projectile, inherits from obj_MonsterProjectile
+obj_SlimeBossProjectile
+
+///@description The debuff object that is applied to the player when hit by a projectile that is associated with a debuff (slow, heal, polymorph)
+obj_Debuff
+
+///@description The pause object that controls all interfaces and the HUD
+obj_Pause
+
+///@description Creates a surface that covers the room to darken it
+obj_Lighting
+
+///@description Adds a "glowing" affect around the tiles it is placed on - meant to be placed on torches
+obj_TorchGlow
+
+///@description A parent object from which all interactable environment objects inherit
+obj_Event
+
+///@description A child of obj_Event that creates on-screen text and calls scr_bridge() when interacted with
+obj_Bridge
+
+///@description A child of obj_Event that creates on-screen text and creates an instance of obj_warp at its location - room and coordinates are specified in the instance creation code
+obj_Climb
+
+///@description The object that creates the on-screen text to tell the player how to spawn the boss, inherits from obj_Event
+obj_SpawnNote
+
+///@description The object that creates the on-screen text to tell the player that the door in the boss room is locked, inherits from obj_Event
+obj_LockedDoor
+
+///@description The object that spawns the monsters in the test room, never used in the proper game, inherits from obj_Event
+obj_SpawnEnemy
+
+///@description A parent object from which all inventory items inherit
+obj_item
+
+///@description A child of obj_item that is used with the locked door in the boss room - can be picked up and placed in inventory
+obj_key
+
+///@description A child of obj_item that allows the user to cast spells when the item is equipped. Damage variable should be defined when an instance is created
+obj_spellbook

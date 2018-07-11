@@ -1,0 +1,1 @@
+Message = "Interact With Gargoyle (E)";
