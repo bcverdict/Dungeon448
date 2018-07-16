@@ -21,18 +21,18 @@ var boxSize = 64;//size of inventory box
 var _x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0])/2 - (array_length_1d(global.inventory)-1)/2 * boxSize;
 var _y = camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0])/2;
 
-if((keyboard_check_pressed(ord("D"))||(gamepad_axis_value(0,gp_axislh)>0))&&(alarm[10]==-1))
+if((keyboard_check_pressed(ord("D"))||(gamepad_axis_value(0,gp_axislh)>0)||(gamepad_axis_value(1,gp_axislh)>0))&&(alarm[10]==-1))
 {
 	alarm[10]=5;
 	global.item_index = min(global.item_index+1, array_length_1d(global.inventory)-1);//select the slot to the right
 }
-if((keyboard_check_pressed(ord("A"))||(gamepad_axis_value(0,gp_axislh)<0))&&(alarm[10]==-1))
+if((keyboard_check_pressed(ord("A"))||(gamepad_axis_value(0,gp_axislh)<0)||(gamepad_axis_value(1,gp_axislh)<0))&&(alarm[10]==-1))
 {
 	alarm[10]=5;
 	global.item_index = max(global.item_index-1, 0);//select the slot to the left
 }
 
-if(keyboard_check_pressed(ord("E"))||(gamepad_button_check_pressed(0,gp_face1)))
+if(keyboard_check_pressed(ord("E"))||(gamepad_button_check_pressed(0,gp_face1))||(gamepad_button_check_pressed(1,gp_face1)))
 {
 	if(global.inventory[global.item_index] != noone)
 	{

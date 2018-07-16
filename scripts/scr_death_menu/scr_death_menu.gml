@@ -2,6 +2,7 @@
 if(global.fade>=1)
 {
 	instance_deactivate_object(inst_78C8041E);
+	instance_deactivate_object(inst_4F75CE06);
 }
 prevAlpha = draw_get_alpha();
 prevColor = draw_get_color();
@@ -47,11 +48,18 @@ if(global.fade >= 1)
 		instance_activate_object(inst_78C8041E);
 		inst_78C8041E.PlayerHealth = inst_78C8041E.MaxPlayerHealth;
 		inst_78C8041E.player_speed = inst_78C8041E.MaxPlayerSpeed;
+		
+		instance_activate_object(inst_4F75CE06);
+		inst_4F75CE06.PlayerHealth = inst_4F75CE06.MaxPlayerHealth;
+		inst_4F75CE06.player_speed = inst_4F75CE06.MaxPlayerSpeed;
 		if(room_get_name(room) == "room5")
 		{
 			room_goto(room5);
 			inst_78C8041E.x = 640;
 			inst_78C8041E.y = 750;
+			
+			inst_4F75CE06.x = 640;
+			inst_4F75CE06.y = 750;
 			global.fade = 0.01;
 		}
 		else
@@ -59,6 +67,9 @@ if(global.fade >= 1)
 			room_goto(room0);
 			inst_78C8041E.x = 612;
 			inst_78C8041E.y = 1428;
+			
+			inst_4F75CE06.x = 476;
+			inst_4F75CE06.y = 1428;
 			global.fade = 0.01;
 		}
 		Counter = 0;

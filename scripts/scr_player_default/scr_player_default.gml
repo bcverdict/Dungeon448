@@ -1,5 +1,5 @@
 //default character
-LAttack = ((mouse_check_button_pressed(mb_left))||(gamepad_button_check_pressed(0,gp_face2)));
+LAttack = ((mouse_check_button_pressed(mb_left))||(gamepad_button_check_pressed(Playernum,gp_face2)));
 if((LAttack)&&(ProjCount == 0))
 {
 	if(global.equippedItem != noone)//if an item is equipped

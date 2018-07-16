@@ -19,20 +19,24 @@ switch(currentPlayer)
 		playerDeadSpr = s_Death_Down;
 		break;
 }
-if((!arrowBool)&&(gamepad_is_connected(0)))
+//show_message(string(instance_number(obj_Arrow)));
+if((!self.arrowBool)&&(gamepad_is_connected(Player)))
 {
-	instance_create_depth(x,y,0,obj_Arrow);
-	arrowBool = true;
+//	instance_create_depth(x,y,0,obj_Arrow);
+	self.arrowBool = true;
 }
-else if((arrowBool)&&(!gamepad_is_connected(0)))
+else if((self.arrowBool)&&(!gamepad_is_connected(Player)))
 {
-	instance_destroy(obj_Arrow);
-	arrowBool = false;
+	//instance_destroy(obj_Arrow);
+	self.arrowBool = false;
 }
 if(PlayerXp>=MaxPlayerXP)
 {
 	PlayerLevel+=1;
-	global.PlayerAbilityCredits+=1;
+	if(Player)
+		global.PlayerAbilityCredits1+=1;
+	else
+		global.PlayerAbilityCredits0+=1;
 	PlayerXp-=MaxPlayerXP;
 }
 if(TankCooldown<30)
@@ -51,13 +55,13 @@ if(PlayerHealth>0)//if the player is not dead
 	if(deflectCoolDown<20)
 		deflectCoolDown++;
 	dying = false;
-	if(global.DeflectLeveled)
-		Deflect = (keyboard_check_pressed(ord("E"))||(gamepad_button_check_pressed(0,gp_shoulderl)));
-	RAttack = (mouse_check_button_pressed(mb_right)||(gamepad_button_check_pressed(0,gp_face1))) && sprite_get_name(sprite_index) != "SlimeSprite"; //right mouse click
-	if(global.TankLeveled)
-		Tank = (keyboard_check_pressed(ord("R"))||(gamepad_button_check_pressed(0,gp_shoulderr)))
-	if(global.BounceLeveled)
-		Bounce = ((keyboard_check_pressed(ord("H")))||(gamepad_button_check_pressed(0, gp_shoulderrb)));
+	if(((global.DeflectLeveled0)&&(!Player))||((global.DeflectLeveled1)&&(Player)))
+		Deflect = (keyboard_check_pressed(ord("E"))||(gamepad_button_check_pressed(Player,gp_shoulderl)));
+	RAttack = (mouse_check_button_pressed(mb_right)||(gamepad_button_check_pressed(Player,gp_face1))) && sprite_get_name(sprite_index) != "SlimeSprite"; //right mouse click
+	if(((global.TankLeveled0)&&(!Player))||((global.TankLeveled1)&&(Player)))
+		Tank = (keyboard_check_pressed(ord("R"))||(gamepad_button_check_pressed(Player,gp_shoulderr)))
+	if(((global.BounceLeveled0)&&(!Player))||((global.BounceLeveled1)&&(Player)))
+		Bounce = ((keyboard_check_pressed(ord("H")))||(gamepad_button_check_pressed(Player, gp_shoulderrb)));
 	if((Deflect)&&(deflectCoolDown==20))
 	{
 		deflectCoolDown=0;
@@ -78,9 +82,9 @@ if(PlayerHealth>0)//if the player is not dead
 		var Proj = instance_create_layer(x, y,"Player_Instance",obj_ProjectileBounce);//create a projectile
 		BounceCooldown = 0;
 	}
-	scr_player_movement(); //movement script
+	scr_player_movement(self.Player); //movement script
 	myHurtbox.image_xscale = image_xscale;
-	var ThisPlayer = self; //stores the id of the current player
+	//var ThisPlayer = self; //stores the id of the current player
 	//------------
 	
 	//----------
@@ -176,14 +180,18 @@ else if (dying) //after player died
 if(keyboard_check_pressed((ord("G"))))
 {
 	god = !god;
-	global.BounceLeveled = !global.BounceLeveled;
-	global.TankLeveled = !global.TankLeveled;
-	global.DeflectLeveled = !global.DeflectLeveled;
 }
 
 if(god)
 {
 	PlayerHealth = MaxPlayerHealth;
+	global.BounceLeveled0 = true;
+	global.TankLeveled0 = true;
+	global.DeflectLeveled0 = true;
+	
+	global.BounceLeveled1 = true;
+	global.TankLeveled1 = true;
+	global.DeflectLeveled1 = true;
 }
 if(ProjCount >= MaxProjCount)
 {

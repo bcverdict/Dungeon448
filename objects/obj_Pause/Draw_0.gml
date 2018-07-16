@@ -1,12 +1,12 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-dead = inst_78C8041E.PlayerHealth <=0;
+dead = inst_4F75CE06.PlayerHealth <=0;
 depth = -300;
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 //show_message(string(Counter));
-if((keyboard_check_pressed(vk_escape)||gamepad_button_check_pressed(0,gp_start)) && !dead && !global.inventoryIsOpened)//if escape key is pressed and no other interface is open
+if((keyboard_check_pressed(vk_escape)||gamepad_button_check_pressed(0,gp_start)||gamepad_button_check_pressed(1,gp_start)) && !dead && !global.inventoryIsOpened)//if escape key is pressed and no other interface is open
 {
 	Counter = 0;
 	global.pause = not(global.pause);
@@ -15,11 +15,11 @@ if((keyboard_check_pressed(vk_escape)||gamepad_button_check_pressed(0,gp_start))
 		global.help = false;
 	}
 }
-else if(((keyboard_check_pressed(vk_tab))||(gamepad_button_check_pressed(0,gp_face4))) && !dead)//if tab key is pressed and no other interface is open
+else if(((keyboard_check_pressed(vk_tab))||(gamepad_button_check_pressed(0,gp_face4))||(gamepad_button_check_pressed(1,gp_face4))) && !dead)//if tab key is pressed and no other interface is open
 {
 	global.inventoryIsOpened = !global.inventoryIsOpened;
 }
-else if(((keyboard_check_pressed(vk_lshift))||(gamepad_button_check_pressed(0,gp_select)))&&(!dead))//if tab key is pressed and no other interface is open
+else if(((keyboard_check_pressed(vk_lshift))||(gamepad_button_check_pressed(0,gp_select))||(gamepad_button_check_pressed(1,gp_select)))&&(!dead))//if tab key is pressed and no other interface is open
 {
 	global.abilitySelect = !global.abilitySelect;
 }
@@ -56,7 +56,10 @@ else if(global.inventoryIsOpened)
 else if(global.abilitySelect)
 {
 	instance_deactivate_all(global.abilitySelect);//deactivates all objects
-	scr_ability_select();//displays ability menu
+	if(gamepad_is_connected(1))
+		scr_multi_ability_select();
+	else
+		scr_ability_select();//displays ability menu
 }
 else if(dead)//if player has died
 {
@@ -91,28 +94,32 @@ else
 	player = instance_find(obj_Player,0);
 	if(!global.pause && !global.displayTitleMenu)
 	{
-		//draw player health bar
-		scr_slider(camera_get_view_x(view_camera[0]) + profileSize + healthOffset + profileOffsetX, camera_get_view_y(view_camera[0]) + profileSize + healthOffset-25, borderWidth,  healthLength, healthHeight, player.PlayerHealth/player.MaxPlayerHealth, borderColor, c_red, c_green);
-		//draw player XP bar
-		scr_slider(camera_get_view_x(view_camera[0]) + profileSize + healthOffset + profileOffsetX, camera_get_view_y(view_camera[0]) + profileSize + healthOffset, borderWidth,  healthLength, healthHeight/2, obj_Player.PlayerXp/obj_Player.MaxPlayerXP, borderColor, c_red, c_green);
-	
-		//draw player profile
-		draw_rectangle_color(camera_get_view_x(view_camera[0]) + profileOffsetX,camera_get_view_y(view_camera[0]) + profileOffsetY - borderWidth, camera_get_view_x(view_camera[0]) + profileSize + profileOffsetX + borderWidth*2,camera_get_view_y(view_camera[0]) + profileSize + profileOffsetY + borderWidth,borderColor, borderColor,borderColor, borderColor, false);
-		draw_sprite_ext(player.playerProfile, 0, camera_get_view_x(view_camera[0]) + profileOffsetX + borderWidth + sprite_get_xoffset(player.playerProfile), camera_get_view_y(view_camera[0]) + profileOffsetY+ sprite_get_yoffset(player.playerProfile), profileSize/sprite_get_width(s_Player), profileSize/sprite_get_width(s_Player),0,c_white,1 );
-	
-		//draw player name
-		playerName = instance_find(obj_Player, 0).name;
-		textOffsetX = 3
-		draw_set_color(borderColor);
-		draw_set_alpha(1);
-		draw_set_font(NameFont);
-		draw_set_halign(fa_left);
-		draw_outlined_text(camera_get_view_x(view_camera[0])+profileSize + healthOffset + textOffsetX,camera_get_view_y(view_camera[0])+profileSize + healthOffset - 35, player.name, c_dkgray, c_ltgray);
+		for(i = 0; i<instance_number(obj_Player); i++)
+		{
+			Player[i] = instance_find(obj_Player,i)
 		
-		//draw player level
-		draw_outlined_text(camera_get_view_x(view_camera[0])+profileSize + healthOffset + textOffsetX+130,camera_get_view_y(view_camera[0])+profileSize + healthOffset - 35, obj_Player.PlayerLevel, c_dkgray, c_ltgray);
+			//draw player0 health bar
+			scr_slider(camera_get_view_x(view_camera[0]) + profileSize + healthOffset + profileOffsetX +(400-i*400)*gamepad_is_connected(1), camera_get_view_y(view_camera[0]) + profileSize + healthOffset-25, borderWidth,  healthLength, healthHeight, Player[i].PlayerHealth/Player[i].MaxPlayerHealth, borderColor, c_red, c_green);
+			//draw player0 XP bar
+			scr_slider(camera_get_view_x(view_camera[0]) + profileSize + healthOffset + profileOffsetX +(400-i*400)*gamepad_is_connected(1), camera_get_view_y(view_camera[0]) + profileSize + healthOffset, borderWidth,  healthLength, healthHeight/2, Player[i].PlayerXp/Player[i].MaxPlayerXP, borderColor, c_red, c_green);
 	
-		//draw the player ability icon	
+			//draw player0 profile
+			draw_rectangle_color(camera_get_view_x(view_camera[0]) + profileOffsetX+(400-i*400)*gamepad_is_connected(1),camera_get_view_y(view_camera[0]) + profileOffsetY - borderWidth, camera_get_view_x(view_camera[0]) + profileSize + profileOffsetX + borderWidth*2+(400-i*400)*gamepad_is_connected(1),camera_get_view_y(view_camera[0]) + profileSize + profileOffsetY + borderWidth,borderColor, borderColor,borderColor, borderColor, false);
+			draw_sprite_ext(Player[i].playerProfile, 0, camera_get_view_x(view_camera[0]) + profileOffsetX + borderWidth + sprite_get_xoffset(Player[i].playerProfile)+(400-i*400)*gamepad_is_connected(1), camera_get_view_y(view_camera[0]) + profileOffsetY+ sprite_get_yoffset(Player[i].playerProfile), profileSize/sprite_get_width(s_Player), profileSize/sprite_get_width(s_Player),0,c_white,1 );
+	
+			//draw player0 name
+			//playerName = instance_find(obj_Player, 0).name;
+			textOffsetX = 3
+			draw_set_color(borderColor);
+			draw_set_alpha(1);
+			draw_set_font(NameFont);
+			draw_set_halign(fa_left);
+			draw_outlined_text(camera_get_view_x(view_camera[0])+profileSize + healthOffset + textOffsetX+(400-i*400)*gamepad_is_connected(1),camera_get_view_y(view_camera[0])+profileSize + healthOffset - 35, Player[i].name, c_dkgray, c_ltgray);
+		
+			//draw player0 level
+			draw_outlined_text(camera_get_view_x(view_camera[0])+profileSize + healthOffset + textOffsetX+130+(400-i*400)*gamepad_is_connected(1),camera_get_view_y(view_camera[0])+profileSize + healthOffset - 35, Player[i].PlayerLevel, c_dkgray, c_ltgray);
+		}
+		//draw the player0 ability icon	
 		if(global.equippedItem != noone)
 		{
 			abilityBoxSize = 60;
@@ -148,5 +155,7 @@ if(global.testRoom && instance_exists(obj_Player))
 	room_goto(room5);
 	inst_78C8041E.x = 607;
 	inst_78C8041E.y = 714;
+	inst_4F75CE06.x = 637;
+	inst_4F75CE06.y = 714;
 	global.testRoom = false;
 }

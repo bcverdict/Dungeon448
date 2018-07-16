@@ -3,8 +3,16 @@ if(place_meeting(x,y,obj_Deflectbox))
 	self.target = false;
 	if(gamepad_is_connected(0))
 	{
-		self.direction = obj_Arrow.direction;
-		self.image_angle = obj_Arrow.image_angle;
+		if((x==inst_4F75CE06.x)&&(y==inst_4F75CE06.y))
+		{
+			image_angle = global.Arrow0.image_angle;
+			direction = global.Arrow0.direction;
+		}
+		else
+		{
+			image_angle = global.Arrow1.image_angle;
+			direction = global.Arrow1.direction;
+		}
 	}
 	else
 	{
@@ -38,7 +46,8 @@ if((place_meeting(x, y, obj_Monster))&&(!self.target))
 if((place_meeting(x, y, obj_Char_Hurtbox))&&(target)) //if colliding with the player
 {
 	//take one damage
-	inst_78C8041E.PlayerHealth -= Damage;
+	NearestPlayer = instance_nearest(self.x, self.y, obj_Player);
+	NearestPlayer.PlayerHealth -= Damage;
 	Damage = 0;
 	DeleteProjectile = true;
 				
@@ -48,7 +57,7 @@ if((place_meeting(x, y, obj_Char_Hurtbox))&&(target)) //if colliding with the pl
 		with(DebuffID) //code in the debuff object just created
 		{
 			Target = true;
-			AppliesTo = inst_78C8041E; //store the id of the player this debuff is being applied to
+			AppliesTo = instance_nearest(self.x, self.y, obj_Player); //store the id of the player this debuff is being applied to
 			CurrentDebuffType = other.Debuff; //store the type of debuff this is
 			DebuffTime = other.DebuffTime; //store the amount of time the debuff will last
 		}
@@ -58,16 +67,7 @@ if((place_meeting(x, y, obj_Char_Hurtbox))&&(target)) //if colliding with the pl
 
 if(instance_place(x, y, obj_Solid))
 {
-	with(instance_place(x, y, obj_Solid))
-	{
-		if(!isWater)
-		{
-			with(instance_place(x,y,obj_MonsterProjectile))
-			{
-				DeleteProjectile = true;
-			}
-		}
-	}
+	DeleteProjectile = true;
 }
 
 //death animation

@@ -12,7 +12,7 @@ if(image_index <=4)
 	obj = instance_create_depth(x,y,10000,obj_Deflectbox);
 	with(obj)
 	{
-		image_xscale = inst_78C8041E.image_xscale;
+		image_xscale = instance_nearest(x,y,obj_Player).image_xscale;
 	}
 }
 else

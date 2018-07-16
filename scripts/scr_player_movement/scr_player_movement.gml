@@ -1,10 +1,12 @@
-MLeft = (keyboard_check(ord("A"))||(gamepad_axis_value(0,gp_axislh)<0));
-MRight = (keyboard_check(ord("D"))||(gamepad_axis_value(0,gp_axislh)>0));
-MUp = (keyboard_check(ord("W"))||(gamepad_axis_value(0,gp_axislv)<0));
-MDown = (keyboard_check(ord("S"))||(gamepad_axis_value(0,gp_axislv)>0));
+///@arg0 player number
+Playernum = argument0;
+MLeft = (keyboard_check(ord("A"))||(gamepad_axis_value(Playernum,gp_axislh)<0));
+MRight = (keyboard_check(ord("D"))||(gamepad_axis_value(Playernum,gp_axislh)>0));
+MUp = (keyboard_check(ord("W"))||(gamepad_axis_value(Playernum,gp_axislv)<0));
+MDown = (keyboard_check(ord("S"))||(gamepad_axis_value(Playernum,gp_axislv)>0));
 if(alarm[10]==-1)
 {
-	MGlide = (keyboard_check_pressed(ord("F"))||(gamepad_button_check_pressed(0,gp_face3)));
+	MGlide = (keyboard_check_pressed(ord("F"))||(gamepad_button_check_pressed(Playernum,gp_face3)));
 }
 else
 {

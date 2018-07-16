@@ -1,10 +1,13 @@
-if((inst_78C8041E.PlayerHealth+5)<inst_78C8041E.MaxPlayerHealth)
+for(i = 0; i<instance_number(obj_Player); i++)
 {
-	inst_78C8041E.PlayerHealth+=5;
+	Player[i] = instance_find(obj_Player,i);
+	if((Player[i].PlayerHealth+5)<Player[i].MaxPlayerHealth)
+	{
+		Player[i].PlayerHealth+=5;
+	}
+	else
+	{
+		Player[i].PlayerHealth=Player[i].MaxPlayerHealth;
+	}
 }
-else
-{
-	inst_78C8041E.PlayerHealth=inst_78C8041E.MaxPlayerHealth;
-}
-
 instance_destroy();	

@@ -16,12 +16,17 @@ if(fadeOut)
 		room_goto(targetRoom);
 		if(!drop)
 		{
-			NearestPlayer.x=targetX;
-			NearestPlayer.y=targetY;
+			inst_4F75CE06.x=targetX;
+			inst_4F75CE06.y=targetY;
+			if(gamepad_is_connected(1))
+			{
+				inst_78C8041E.x=targetX+200;
+				inst_78C8041E.y=targetY;
+			}
 		}
-		NearestPlayer = instance_nearest(self.x, self.y, obj_Player);
-		NearestPlayer.player_speed = NearestPlayer.MaxPlayerSpeed;
-		
+		inst_4F75CE06.player_speed = inst_4F75CE06.MaxPlayerSpeed;
+		if(gamepad_is_connected(1))
+			inst_78C8041E.player_speed = inst_78C8041E.MaxPlayerSpeed;
 	}
 }
 

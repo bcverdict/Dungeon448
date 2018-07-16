@@ -7,5 +7,5 @@ else
 	Message = "Climb Broken Wall (E)";
 }
 _room = room1;
-_x = self.x;
-_y = self.y;
+_x = self.x-200;
+_y = self.y+200;

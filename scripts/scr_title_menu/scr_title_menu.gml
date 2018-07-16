@@ -58,7 +58,15 @@ if(!variable_global_exists("charSelect") || global.charSelect = false)
 }
 else
 {
-	scr_char_select();
+	
+	if(gamepad_is_connected(1))
+	{
+		scr_multi_char_select();
+	}
+	else
+	{
+		scr_char_select();
+	}
 }
 draw_set_color(prevColor);
 draw_set_alpha(prevAlpha);

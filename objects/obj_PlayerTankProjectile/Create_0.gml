@@ -3,8 +3,16 @@
 damage = obj_Player.PreviousHealth-obj_Player.PlayerHealth;
 if(gamepad_is_connected(0))
 {
-	image_angle = obj_Arrow.image_angle;
-	direction = obj_Arrow.direction;
+	if((x==inst_4F75CE06.x)&&(y==inst_4F75CE06.y))
+	{
+		image_angle = global.Arrow0.image_angle;
+		direction = global.Arrow0.direction;
+	}
+	else
+	{
+		image_angle = global.Arrow1.image_angle;
+		direction = global.Arrow1.direction;
+	}
 }
 else
 {

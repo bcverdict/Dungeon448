@@ -19,20 +19,14 @@ Deflect = false;
 Tank = false;
 Bounce = false;
 state=states.normal;
-MaxPlayerHealth = 10;
-PreviousHealth = MaxPlayerHealth;
-PlayerHealth = MaxPlayerHealth;
+self.MaxPlayerHealth = 10;
+self.PreviousHealth = self.MaxPlayerHealth;
+self.PlayerHealth = self.MaxPlayerHealth;
 MaxPlayerXP = 10;
 PlayerXp = 0;
 PlayerLevel = 0;
 dying = false;
-gamepad_set_axis_deadzone(0,0.25);
 arrowBool = false;
-if(gamepad_is_connected(0))
-{
-	instance_create_depth(x,y,0,obj_Arrow);
-	arrowBool = true;
-}
 myHurtbox = instance_create_depth(x,y,-1000,obj_Char_Hurtbox);//draws player hurtbox
 scr_inventory_create(6);
 global.equippedItem = noone;

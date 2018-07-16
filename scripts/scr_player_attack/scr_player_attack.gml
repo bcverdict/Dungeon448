@@ -13,7 +13,7 @@ if(image_index <=4)
 	var me = self;
 	with(obj)
 	{
-		image_xscale = inst_78C8041E.image_xscale;
+		image_xscale = instance_nearest(x,y,obj_Player).image_xscale;
 		with(instance_place(x,y,obj_Enemy_Hurtbox))
 		{
 			if(place_meeting(x,y,obj_Hitbox))
