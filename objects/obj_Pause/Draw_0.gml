@@ -153,8 +153,11 @@ else
 if(global.testRoom && instance_exists(obj_Player))
 {
 	room_goto(room5);
-	inst_78C8041E.x = 607;
-	inst_78C8041E.y = 714;
+	if(gamepad_is_connected(1))
+	{
+		inst_78C8041E.x = 607;
+		inst_78C8041E.y = 714;
+	}
 	inst_4F75CE06.x = 637;
 	inst_4F75CE06.y = 714;
 	global.testRoom = false;

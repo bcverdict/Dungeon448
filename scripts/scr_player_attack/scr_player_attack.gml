@@ -20,6 +20,7 @@ if(image_index <=4)
 			{
 				with(instance_place(x,y,obj_Monster))
 				{
+					instance_create_layer(x,y,"Player_Instance",obj_impact);
 					if(CurrentDamageCooldown==FullDamageCooldown || mouse_check_button_pressed(mb_right) && CurrentDamageCooldown >= 8)
 					{
 						Health--;
