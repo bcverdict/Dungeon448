@@ -22,6 +22,8 @@ camHeight = camera_get_view_height(view_camera[0])
 camx = camera_get_view_x(view_camera[0])
 camy = camera_get_view_y(view_camera[0])
 players = [s1_Player, s_Player]
+playersBought = [s_Player, s_DeflectBought, s_BounceBought]
+spriteBought = [global.TankLeveled0, global.DeflectLeveled0, global.BounceLeveled0]
 playerDisplay=[s1_Player1,s_Player1]
 playerNames = ["Dr Alex Bardas", "Kurt Slagle"];
 if(!variable_global_exists("char_index0"))
@@ -74,8 +76,10 @@ for(i = 0; i < array_length_1d(players); i++)
 		else
 			global.localPlayer1.currentPlayer = playerSelect.Kurt;
 	}
-	
-	draw_sprite(players[i],0, charX-225, charY);
+	if(spriteBought[i])
+		draw_sprite(playersBought[i],0, charX-225, charY);
+	else
+		draw_sprite(players[i],0, charX-225, charY);
 	//draw_text(charX, charY + 50, playerNames[i]);
 }
 for(i = 0; i < array_length_1d(players); i++) 
@@ -101,8 +105,10 @@ for(i = 0; i < array_length_1d(players); i++)
 		else
 			global.localPlayer.currentPlayer = playerSelect.Kurt;
 	}
-	
-	draw_sprite(players[i],0, charX+175, charY);
+	if(spriteBought[i])
+		draw_sprite(playersBought[i],0, charX+175, charY);
+	else
+		draw_sprite(players[i],0, charX+175, charY);
 	//draw_text(charX, charY + 50, playerNames[i]);
 }
 

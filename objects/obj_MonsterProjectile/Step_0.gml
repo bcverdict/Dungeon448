@@ -47,7 +47,8 @@ if((place_meeting(x, y, obj_Char_Hurtbox))&&(target)) //if colliding with the pl
 {
 	//take one damage
 	NearestPlayer = instance_nearest(self.x, self.y, obj_Player);
-	NearestPlayer.PlayerHealth -= Damage;
+	if(instance_number(obj_Player)>0)
+		NearestPlayer.PlayerHealth -= Damage;
 	Damage = 0;
 	DeleteProjectile = true;
 				
