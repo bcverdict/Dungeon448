@@ -16,7 +16,7 @@ else
 //10, glide cooldown
 if((MGlide)&&(alarm[11]==-1))
 {
-	var Smoke = instance_create_layer(x, y,"Player_Instance",obj_glideSmoke);
+	var Smoke = instance_create_depth(x,y,obj_Player.depth,obj_glideSmoke);
 	Glide = 2;//speed multiplier for Glide
 	alarm[10]=20;
 	alarm[11]=5;

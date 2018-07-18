@@ -82,12 +82,62 @@ if(PlayerHealth>0)//if the player is not dead
 		var Proj = instance_create_layer(x, y,"Player_Instance",obj_ProjectileBounce);//create a projectile
 		BounceCooldown = 0;
 	}
+	if((DotFire)&&(!DotIce)&&(DotFireCounter!=0)&&(alarm[0]==-1))//take fire damage over time
+	{
+		self.PlayerHealth-=1;
+		self.DotFireCounter-=1;
+		alarm[0]=15;
+	}
+	if((DotIce)&&(!DotFire)&&(DotIceCounter!=0)&&(alarm[1]==-1))//take ice damage over time
+	{
+		self.PlayerHealth-=2;
+		self.DotIceCounter-=1;
+		alarm[1]=15;
+	}
+	if((self.DotFire)&&(self.DotIce))
+	{
+		self.DotFireCounter-=1;
+		self.DotIceCounter-=1;
+	}
+	if((self.DotPoison)&&(!self.DotStone)&&(self.DotPoisonCounter!=0)&&(alarm[2]==-1))//take poison damage over time
+	{
+		self.PlayerHealth-=2;
+		self.DotPoisonCounter-=1;
+		alarm[2]=15;
+	}
+	if((self.DotStone)&&(!self.DotPoison)&&(self.DotStoneCounter!=0)&&(alarm[3]==-1))//take stone damage over time
+	{
+		self.PlayerHealth-=1;
+		self.DotStoneCounter-=1;
+		alarm[3]=15;
+	}
+	if((self.DotPoison)&&(self.DotStone))
+	{
+		self.DotPoisonCounter-=1;
+		self.DotStoneCounter-=1;
+	}
+	if(self.DotFireCounter<=0)
+	{
+		self.DotFire = false;
+		self.DotFireCounter = 10;
+	}
+	if(self.DotIceCounter<=0)
+	{
+		self.DotIce = false;
+		self.DotIceCounter = 10;
+	}
+	if(self.DotPoisonCounter<=0)
+	{
+		self.DotPoison = false;
+		self.DotPoisonCounter = 20;
+	}
+	if(self.DotStoneCounter<=0)
+	{
+		self.DotStone = false;
+		self.DotStoneCounter = 20;
+	}
 	scr_player_movement(self.Player); //movement script
 	myHurtbox.image_xscale = image_xscale;
-	//var ThisPlayer = self; //stores the id of the current player
-	//------------
-	
-	//----------
 	switch(state)
 	{
 		case states.normal:

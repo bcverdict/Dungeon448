@@ -16,8 +16,10 @@ camWidth = camera_get_view_width(view_camera[0])
 camHeight = camera_get_view_height(view_camera[0]) 
 camx = camera_get_view_x(view_camera[0])
 camy = camera_get_view_y(view_camera[0])
-players = [s_Player, s_Deflect, s_Bounce]
-playerDisplay=[s_Player1,s_Deflect1, s_Bounce1]
+players = [s_Tank, s_Deflect, s_Bounce]
+playersBought = [s_TankBought, s_DeflectBought, s_BounceBought]
+spriteBought = [global.TankLeveled0, global.DeflectLeveled0, global.BounceLeveled0]
+playerDisplay=[s_Tank1,s_Deflect1, s_Bounce1]
 playerNames = ["Energy absorb", "Deflect","Bouncing Projectiles"];
 if(!variable_global_exists("char_index0"))
 	global.char_index0 = 0;
@@ -71,11 +73,14 @@ for(i = 0; i < array_length_1d(players); i++)
 		draw_rectangle(charX-sprite_get_xoffset(players[i])-225, charY- sprite_get_yoffset(players[i]), charX - sprite_get_xoffset(players[i])+ sprite_get_width(players[i])-225, charY- sprite_get_yoffset(players[i]) + sprite_get_height(players[i]), false);
 		draw_set_color(c_yellow);
 		//draw_text(charX, charY + 50, playerNames[i]);
-		draw_sprite(playerDisplay[i],0,camera_get_view_x(view_camera[0])+1/4*camWidth,camera_get_view_y(view_camera[0])+2/5*camHeight);
+		draw_sprite(playerDisplay[i],image_index+0.5,camera_get_view_x(view_camera[0])+1/4*camWidth,camera_get_view_y(view_camera[0])+2/5*camHeight);
 		draw_text(camera_get_view_x(view_camera[0])+1/4*camWidth,camera_get_view_y(view_camera[0])+16/30*camHeight, playerNames[i]);
 	}
 	global.abilityIndex0 = i;
-	draw_sprite(players[i],0, charX-225, charY);
+	if(spriteBought[i])
+		draw_sprite(playersBought[i],0, charX-225, charY);
+	else
+		draw_sprite(players[i],0, charX-225, charY);
 	//draw_text(charX, charY + 50, playerNames[i]);
 }
 for(i = 0; i < array_length_1d(players); i++) 
@@ -92,11 +97,14 @@ for(i = 0; i < array_length_1d(players); i++)
 		draw_rectangle(charX-sprite_get_xoffset(players[i])+175, charY- sprite_get_yoffset(players[i]), charX - sprite_get_xoffset(players[i])+ sprite_get_width(players[i])+175, charY- sprite_get_yoffset(players[i]) + sprite_get_height(players[i]), false);
 		draw_set_color(c_yellow);
 		//draw_text(charX, charY + 50, playerNames[i]);
-		draw_sprite(playerDisplay[i],0,camera_get_view_x(view_camera[0])+3/4*camWidth,camera_get_view_y(view_camera[0])+2/5*camHeight);
+		draw_sprite(playerDisplay[i],image_index+0.5,camera_get_view_x(view_camera[0])+3/4*camWidth,camera_get_view_y(view_camera[0])+2/5*camHeight);
 		draw_text(camera_get_view_x(view_camera[0])+3/4*camWidth,camera_get_view_y(view_camera[0])+16/30*camHeight, playerNames[i]);
 	}
 	global.abilityIndex1 = i;
-	draw_sprite(players[i],0, charX+175, charY);
+	if(spriteBought[i])
+		draw_sprite(playersBought[i],0, charX+175, charY);
+	else
+		draw_sprite(players[i],0, charX+175, charY);
 	//draw_text(charX, charY + 50, playerNames[i]);
 }
 if((scr_button(camx + camWidth/2, camy + camHeight * 9/10 - buttonHeight, buttonWidth, buttonHeight, 0, buttonPressed, "Select"))||(gamepad_button_check_pressed(0,gp_face1)))

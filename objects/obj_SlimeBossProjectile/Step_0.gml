@@ -23,12 +23,9 @@ if(instance_place(x, y, obj_Solid))
 {
 	with(instance_place(x, y, obj_Solid))
 	{
-		if(isWater == false)
+		with(instance_place(x,y,obj_MonsterProjectile))
 		{
-			with(instance_place(x,y,obj_MonsterProjectile))
-			{
-				DeleteProjectile = true;
-			}
+			DeleteProjectile = true;
 		}
 	}
 }

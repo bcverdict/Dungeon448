@@ -15,10 +15,10 @@ camWidth = camera_get_view_width(view_camera[0])
 camHeight = camera_get_view_height(view_camera[0]) 
 camx = camera_get_view_x(view_camera[0])
 camy = camera_get_view_y(view_camera[0])
-players = [s_Player, s_Deflect, s_Bounce]
-playersBought = [s_Player, s_DeflectBought, s_BounceBought]
+players = [s_Tank, s_Deflect, s_Bounce]
+playersBought = [s_TankBought, s_DeflectBought, s_BounceBought]
 spriteBought = [global.TankLeveled0, global.DeflectLeveled0, global.BounceLeveled0]
-playerDisplay=[s_Player1,s_Deflect1, s_Bounce1]
+playerDisplay=[s_Tank1,s_Deflect1, s_Bounce1]
 playerNames = ["Energy absorb", "Deflect","Bouncing Projectiles"];
 if(!variable_global_exists("char_index0"))
 	global.char_index0 = 0;

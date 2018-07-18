@@ -31,11 +31,27 @@
     },
     "resources": [
         {
+            "Key": "0056743a-a644-4b7c-bdca-d32245fea4d0",
+            "Value": {
+                "id": "de2d2509-2942-42eb-90ba-7331f666d3f3",
+                "resourcePath": "objects\\obj_PoisonTrail\\obj_PoisonTrail.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "0129b4ff-c5f1-45da-82a0-b3168d8435e2",
             "Value": {
                 "id": "d069d9f8-b402-4078-b4a7-64f3198bd30d",
                 "resourcePath": "objects\\object1\\object1.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "02e475e6-713a-4fc0-867b-00aca8c8664a",
+            "Value": {
+                "id": "61d429b1-6cf3-4206-b7d6-4bbbd6606615",
+                "resourcePath": "sprites\\s_IceBossProjectile\\s_IceBossProjectile.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -119,6 +135,14 @@
             }
         },
         {
+            "Key": "11961c55-fd41-457c-b3fc-bb14ac6b80ac",
+            "Value": {
+                "id": "8ade41db-256f-4211-9baf-fa6a025845a2",
+                "resourcePath": "objects\\obj_DotIceBossProjectile\\obj_DotIceBossProjectile.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "12cc6f73-9e59-4d2a-8a3d-27bfd87a0dac",
             "Value": {
                 "id": "a275bfa6-21ba-4d93-b621-e92845d18687",
@@ -199,6 +223,14 @@
             }
         },
         {
+            "Key": "21748134-917d-4de2-b9cb-c4ed3db9f2d2",
+            "Value": {
+                "id": "9d1e6e0d-912a-49b8-aff4-c0c8719195f5",
+                "resourcePath": "sprites\\s_PoisonBossProjectile\\s_PoisonBossProjectile.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "22ac96bd-f471-4510-80f1-8afe2d957148",
             "Value": {
                 "id": "911ff31d-25c1-4512-88c7-53e01a3f4633",
@@ -247,11 +279,27 @@
             }
         },
         {
+            "Key": "29e6d8fb-0a9d-4921-bee1-0899cd05ced6",
+            "Value": {
+                "id": "a700f306-f2a7-4f37-8910-acc779a1ba5e",
+                "resourcePath": "sprites\\s_Tank\\s_Tank.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "2b7af681-c8ee-4e21-90ea-946717ad9131",
             "Value": {
                 "id": "39ddeb17-7e3e-4b1a-9f07-0f5b1ad59170",
                 "resourcePath": "views\\2b7af681-c8ee-4e21-90ea-946717ad9131.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "30ff2b87-8e14-4bab-a473-b034647f7b2d",
+            "Value": {
+                "id": "a87682e7-5339-4463-8728-6e399a7c1714",
+                "resourcePath": "sprites\\s_ProjectileFireTrailCopy\\s_ProjectileFireTrailCopy.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -268,6 +316,14 @@
                 "id": "5a957479-6ba9-40cb-aa22-aaa5c13b9956",
                 "resourcePath": "rooms\\room0\\room0.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "33495afa-25cf-48b6-81f1-5ce612a46062",
+            "Value": {
+                "id": "fee2af74-b159-4af8-ab87-742a4079a35e",
+                "resourcePath": "objects\\obj_DotFireBossProjectile\\obj_DotFireBossProjectile.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -379,6 +435,14 @@
             "Value": {
                 "id": "5bbe28d7-f6cb-428e-acef-693c56fe3a3a",
                 "resourcePath": "sprites\\output_tileset\\output_tileset.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "44a74b7e-25b1-49b4-b4d9-44cec1070721",
+            "Value": {
+                "id": "a8573629-57d7-4e07-9708-9ab27b159e42",
+                "resourcePath": "sprites\\s_ProjectileFireTrail1\\s_ProjectileFireTrail1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -503,6 +567,14 @@
             }
         },
         {
+            "Key": "5530fd73-2093-41cd-9b24-bf920f1604aa",
+            "Value": {
+                "id": "d9806411-0d07-4278-bead-eba9dfcc263b",
+                "resourcePath": "sprites\\s_FireBossProjectile\\s_FireBossProjectile.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5748984a-33cc-4b20-bd29-4fa51ff5eb90",
             "Value": {
                 "id": "3ad18a1a-b01a-4585-8010-c7f5c37d42b1",
@@ -523,6 +595,14 @@
             "Value": {
                 "id": "9e19b40e-baf8-4895-9f0f-bfc5d4a6e30d",
                 "resourcePath": "sprites\\s_soulChest\\s_soulChest.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5833566c-7387-4c2e-87c1-7804fa6d496b",
+            "Value": {
+                "id": "c69bd66c-2562-4113-b78a-0ffbc958609a",
+                "resourcePath": "sprites\\s_DotBoss\\s_DotBoss.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -591,6 +671,14 @@
             }
         },
         {
+            "Key": "63eecb95-101d-4abb-8e97-1d2ea57bf11c",
+            "Value": {
+                "id": "33811761-3f98-4557-a03c-92e4cc9a6fde",
+                "resourcePath": "sprites\\s_ProjectileIceTrail\\s_ProjectileIceTrail.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "64010745-2a40-4af1-aff0-ded996f88acc",
             "Value": {
                 "id": "2bab6f3d-d1d8-401d-b1b8-1b9901cfb0d2",
@@ -603,6 +691,14 @@
             "Value": {
                 "id": "29a99d23-db50-48ca-a4e7-e4e8df899a34",
                 "resourcePath": "sprites\\hitbox1\\hitbox1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "65e4b0b0-8140-4f67-b875-c249f42e41bc",
+            "Value": {
+                "id": "7913c0fc-003f-4df5-92b8-ea00c5534b86",
+                "resourcePath": "sprites\\s_Tank1\\s_Tank1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -767,6 +863,14 @@
             }
         },
         {
+            "Key": "807bfd39-0680-46b0-9927-206ae702f1a6",
+            "Value": {
+                "id": "83e48786-e5ac-448f-ae9e-4ab7343e4401",
+                "resourcePath": "objects\\obj_DotStoneBossProjectile\\obj_DotStoneBossProjectile.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "81910615-902c-4dd5-9288-a575d5b574e2",
             "Value": {
                 "id": "23d3d8ca-7d03-45c7-915f-e0f2dce83715",
@@ -879,10 +983,10 @@
             }
         },
         {
-            "Key": "92e9ffb2-9968-4ce3-9a4d-e20b75730107",
+            "Key": "93a3cbe9-1a7a-4e0f-948b-eac2efc0080b",
             "Value": {
-                "id": "8bcedeb7-1684-47c1-9acb-377ad43487c4",
-                "resourcePath": "sprites\\sprite63\\sprite63.yy",
+                "id": "45f4136d-1e3a-4e88-9551-40024a4d36bf",
+                "resourcePath": "sprites\\s_ProjectileFireTrail\\s_ProjectileFireTrail.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -951,6 +1055,14 @@
             }
         },
         {
+            "Key": "98502538-49e2-4985-8c5f-e62edee30d91",
+            "Value": {
+                "id": "9fbaa108-fbf7-45a0-9eaf-224a6c3c12c6",
+                "resourcePath": "objects\\obj_IceTrail\\obj_IceTrail.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "98566563-c3ef-4dcd-8b7a-f748d1bd93ef",
             "Value": {
                 "id": "cc9f58e4-5081-41dc-b527-816420cb22e4",
@@ -963,6 +1075,14 @@
             "Value": {
                 "id": "516f1d36-7eb3-4b76-92c4-a85046ac50a6",
                 "resourcePath": "objects\\obj_LockedDoor\\obj_LockedDoor.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "988d687d-2d63-4549-8488-9356b313a0e0",
+            "Value": {
+                "id": "7d9bcd78-cc39-4201-915c-b6adb4a8e73e",
+                "resourcePath": "objects\\obj_FireTrail\\obj_FireTrail.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1055,6 +1175,30 @@
             }
         },
         {
+            "Key": "a92192c2-2dfc-46b0-80e5-fb2e77e31bf8",
+            "Value": {
+                "id": "871aff9d-762a-4fcf-ab93-ea0b6e05f3fb",
+                "resourcePath": "objects\\obj_StoneTrail\\obj_StoneTrail.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "a933f4fd-d6ac-4738-8458-4ceefb6452b3",
+            "Value": {
+                "id": "d0dcf2a1-3291-4cb0-9011-423d8359c5f2",
+                "resourcePath": "sprites\\s_ProjectilePoisonTrail\\s_ProjectilePoisonTrail.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "aab0155c-1b51-40fd-a297-d599e524e752",
+            "Value": {
+                "id": "d54aede0-0085-4f5a-b1c9-f430cdb05fa8",
+                "resourcePath": "objects\\obj_Test\\obj_Test.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "abf38a35-ea80-4ddf-95a2-229997325e86",
             "Value": {
                 "id": "39383d09-84e0-41dd-9375-2b190e91317d",
@@ -1143,6 +1287,14 @@
             }
         },
         {
+            "Key": "b5f4af3e-13e9-4c7f-add5-d6a6512f3a90",
+            "Value": {
+                "id": "b651c266-32ba-4c1c-bd4d-62558c2a3997",
+                "resourcePath": "sprites\\s_ProjectileStoneTrail\\s_ProjectileStoneTrail.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b60941a9-a312-4d8e-bb5d-f561fef65f6e",
             "Value": {
                 "id": "25a7d515-26ae-4bb1-91ff-ff8a7f8f2e0f",
@@ -1180,6 +1332,14 @@
                 "id": "99c59abb-b9bb-4b41-b0f9-a49be9b67e31",
                 "resourcePath": "fonts\\UIFont\\UIFont.yy",
                 "resourceType": "GMFont"
+            }
+        },
+        {
+            "Key": "bac2622f-ca9b-4998-b339-0bfee1e9e6b3",
+            "Value": {
+                "id": "4b2a4c46-d7d3-4a9d-b183-2f40e52e4d26",
+                "resourcePath": "sprites\\s_TankBought\\s_TankBought.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1244,6 +1404,22 @@
                 "id": "f72827a5-2d73-4ebc-85d2-9f2f8573fa90",
                 "resourcePath": "scripts\\scr_char_select\\scr_char_select.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "c274ce8e-b1ea-47e9-adc3-aeba921e2531",
+            "Value": {
+                "id": "f83fb2da-d7c4-45e4-8ed9-d1c7749af889",
+                "resourcePath": "sprites\\s_StoneBossProjectile\\s_StoneBossProjectile.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c5211475-b9dc-4901-a09c-022b22b567f1",
+            "Value": {
+                "id": "2e1b262e-e149-493a-a07a-000f5e9f1a96",
+                "resourcePath": "objects\\obj_DotPoisonBossProjectile\\obj_DotPoisonBossProjectile.yy",
+                "resourceType": "GMObject"
             }
         },
         {

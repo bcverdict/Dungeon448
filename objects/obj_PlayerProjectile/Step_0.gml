@@ -16,12 +16,9 @@ else if(instance_place(x, y, obj_Solid))//if colliding with collision object
 {
 	with(instance_place(x, y, obj_Solid))
 	{
-		if(!isWater)
+		with(instance_place(x,y, obj_PlayerProjectile))
 		{
-			with(instance_place(x,y, obj_PlayerProjectile))
-			{
-				me.DeleteProjectile = true; //destroys the projectile if the collision object is not water
-			}
+			me.DeleteProjectile = true; //destroys the projectile if the collision object is not water
 		}
 	}
 }
