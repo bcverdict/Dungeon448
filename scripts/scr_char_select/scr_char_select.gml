@@ -55,11 +55,11 @@ for(i = 0; i < array_length_1d(players); i++)
 		draw_sprite(playerDisplay[i],0,camera_get_view_x(view_camera[0])+1/2*camWidth,camera_get_view_y(view_camera[0])+2/5*camHeight);
 		draw_text(camera_get_view_x(view_camera[0])+1/2*camWidth,camera_get_view_y(view_camera[0])+16/30*camHeight, playerNames[i]);
 		if(i = 0)
-			global.localPlayer.currentPlayer = playerSelect.DrBardas;
+			global.localPlayer1.currentPlayer = playerSelect.DrBardas;
 		else if(i = 1)
-			global.localPlayer.currentPlayer = playerSelect.Kurt;
+			global.localPlayer1.currentPlayer = playerSelect.Kurt;
 		else
-			global.localPlayer.currentPlayer = playerSelect.Kurt;
+			global.localPlayer1.currentPlayer = playerSelect.Kurt;
 	}
 	
 	draw_sprite(players[i],0, charX, charY);
