@@ -22,8 +22,10 @@ camHeight = camera_get_view_height(view_camera[0])
 camx = camera_get_view_x(view_camera[0])
 camy = camera_get_view_y(view_camera[0])
 players = [s1_Player, s_Player]
-playersBought = [s_Player, s_DeflectBought, s_BounceBought]
-spriteBought = [global.TankLeveled0, global.DeflectLeveled0, global.BounceLeveled0]
+playersBool0=[global.playerDr0,global.playerKurt0]
+playersBool1=[global.playerDr1,global.playerKurt1]
+characterBought = [s1_PlayerBought, s_PlayerBought]
+
 playerDisplay=[s1_Player1,s_Player1]
 playerNames = ["Dr Alex Bardas", "Kurt Slagle"];
 if(!variable_global_exists("char_index0"))
@@ -68,16 +70,17 @@ for(i = 0; i < array_length_1d(players); i++)
 		//draw_text(charX, charY + 50, playerNames[i]);
 		draw_sprite(playerDisplay[i],0,camera_get_view_x(view_camera[0])+1/4*camWidth,camera_get_view_y(view_camera[0])+2/5*camHeight);
 		draw_text(camera_get_view_x(view_camera[0])+1/4*camWidth,camera_get_view_y(view_camera[0])+16/30*camHeight, playerNames[i]);
-		
+		/*
 		if(i = 0)
 			global.localPlayer1.currentPlayer = playerSelect.DrBardas;
 		else if(i = 1)
 			global.localPlayer1.currentPlayer = playerSelect.Kurt;
 		else
 			global.localPlayer1.currentPlayer = playerSelect.Kurt;
+		*/
 	}
-	if(spriteBought[i])
-		draw_sprite(playersBought[i],0, charX-225, charY);
+	if(playersBool0[i])
+		draw_sprite(characterBought[i],0, charX-225, charY);
 	else
 		draw_sprite(players[i],0, charX-225, charY);
 	//draw_text(charX, charY + 50, playerNames[i]);
@@ -97,16 +100,9 @@ for(i = 0; i < array_length_1d(players); i++)
 		//draw_text(charX, charY + 50, playerNames[i]);
 		draw_sprite(playerDisplay[i],0,camera_get_view_x(view_camera[0])+3/4*camWidth,camera_get_view_y(view_camera[0])+2/5*camHeight);
 		draw_text(camera_get_view_x(view_camera[0])+3/4*camWidth,camera_get_view_y(view_camera[0])+16/30*camHeight, playerNames[i]);
-		
-		if(i = 0)
-			global.localPlayer.currentPlayer = playerSelect.DrBardas;
-		else if(i = 1)
-			global.localPlayer.currentPlayer = playerSelect.Kurt;
-		else
-			global.localPlayer.currentPlayer = playerSelect.Kurt;
 	}
-	if(spriteBought[i])
-		draw_sprite(playersBought[i],0, charX+175, charY);
+	if(playersBool1[i])
+		draw_sprite(characterBought[i],0, charX+175, charY);
 	else
 		draw_sprite(players[i],0, charX+175, charY);
 	//draw_text(charX, charY + 50, playerNames[i]);
@@ -116,12 +112,39 @@ if(gamepad_button_check_pressed(0,gp_face1))
 {
 	//Counter = 0;
 	global.firstCharSelected = !global.firstCharSelected;
+	if(global.char_index0 == 0)
+	{
+		global.playerDr0 = true;
+		global.playerKurt0 = false;
+		global.localPlayer0.currentPlayer = playerSelect.DrBardas;
+	}
+	else if(global.char_index0 == 1)
+	{
+		global.playerDr0 = false;
+		global.playerKurt0 = true;
+		global.localPlayer0.currentPlayer = playerSelect.Kurt;
+	}
 	//global.displayTitleMenu = false;
 }
 if(gamepad_button_check_pressed(1,gp_face1))
 {
 	//Counter = 0;
 	global.secondCharSelected = !global.secondCharSelected;
+	if(global.char_index1 == 0)
+	{
+		global.playerDr1 = true;
+		global.playerKurt1 = false;
+		global.localPlayer1.currentPlayer = playerSelect.DrBardas;
+	}
+	else if(global.char_index1 == 1)
+	{
+		global.playerDr1 = false;
+		global.playerKurt1 = true;
+		global.localPlayer1.currentPlayer = playerSelect.Kurt;
+	}
+	playersBool1[0]=false;
+	playersBool1[1]=false;
+	playersBool1[global.char_index1]=true;
 	//global.displayTitleMenu = false;
 }
 if((global.firstCharSelected)&&(global.secondCharSelected))

@@ -18,7 +18,8 @@ camx = camera_get_view_x(view_camera[0])
 camy = camera_get_view_y(view_camera[0])
 players = [s_Tank, s_Deflect, s_Bounce]
 playersBought = [s_TankBought, s_DeflectBought, s_BounceBought]
-spriteBought = [global.TankLeveled0, global.DeflectLeveled0, global.BounceLeveled0]
+spriteBought0 = [global.TankLeveled0, global.DeflectLeveled0, global.BounceLeveled0]
+spriteBought1 = [global.TankLeveled1, global.DeflectLeveled1, global.BounceLeveled1]
 playerDisplay=[s_Tank1,s_Deflect1, s_Bounce1]
 playerNames = ["Energy absorb", "Deflect","Bouncing Projectiles"];
 if(!variable_global_exists("char_index0"))
@@ -77,7 +78,7 @@ for(i = 0; i < array_length_1d(players); i++)
 		draw_text(camera_get_view_x(view_camera[0])+1/4*camWidth,camera_get_view_y(view_camera[0])+16/30*camHeight, playerNames[i]);
 	}
 	global.abilityIndex0 = i;
-	if(spriteBought[i])
+	if(spriteBought0[i])
 		draw_sprite(playersBought[i],0, charX-225, charY);
 	else
 		draw_sprite(players[i],0, charX-225, charY);
@@ -101,7 +102,7 @@ for(i = 0; i < array_length_1d(players); i++)
 		draw_text(camera_get_view_x(view_camera[0])+3/4*camWidth,camera_get_view_y(view_camera[0])+16/30*camHeight, playerNames[i]);
 	}
 	global.abilityIndex1 = i;
-	if(spriteBought[i])
+	if(spriteBought1[i])
 		draw_sprite(playersBought[i],0, charX+175, charY);
 	else
 		draw_sprite(players[i],0, charX+175, charY);
