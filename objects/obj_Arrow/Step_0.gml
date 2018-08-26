@@ -1,12 +1,19 @@
-if((gamepad_axis_value(Playernum,gp_axisrh)<=gamepad_get_axis_deadzone(Playernum))&&(gamepad_axis_value(Playernum,gp_axisrh)>=-gamepad_get_axis_deadzone(Playernum))&&(gamepad_axis_value(Playernum,gp_axisrv)<=gamepad_get_axis_deadzone(Playernum))&&(gamepad_axis_value(Playernum,gp_axisrv)>=-gamepad_get_axis_deadzone(Playernum)))
+if(gamepad_is_connected(Playernum))
 {
-	image_angle = direction;
+	if((gamepad_axis_value(Playernum,gp_axisrh)<=gamepad_get_axis_deadzone(Playernum))&&(gamepad_axis_value(Playernum,gp_axisrh)>=-gamepad_get_axis_deadzone(Playernum))&&(gamepad_axis_value(Playernum,gp_axisrv)<=gamepad_get_axis_deadzone(Playernum))&&(gamepad_axis_value(Playernum,gp_axisrv)>=-gamepad_get_axis_deadzone(Playernum)))
+	{
+		image_angle = direction;
+	}
+	else
+	{
+		image_angle = point_direction(0, 0, gamepad_axis_value(Playernum,gp_axisrh), gamepad_axis_value(Playernum,gp_axisrv));
+		direction = image_angle;
+	}
 }
 else
 {
-	image_angle = point_direction(0, 0, gamepad_axis_value(Playernum,gp_axisrh), gamepad_axis_value(Playernum,gp_axisrv));
-	direction = image_angle;
-}
+	instance_destroy();
+}	
 if(Playernum)
 {
 	x = inst_78C8041E.x;

@@ -4,7 +4,6 @@ self.image_angle = point_direction(x, y, NearestPlayer.x, NearestPlayer.y);
 self.speed=15;
 Damage = 0;
 DeleteProjectile = false;
-self.depth = 0;
 self.target=true;
 
 //debuff

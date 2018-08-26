@@ -1,0 +1,12 @@
+if(alarm[0]==-1)
+{
+	alarm[0]=3;
+	//image_xscale*=9/10;
+	//image_yscale*=9/10;
+}
+//y-=5;
+counter++;
+if(counter==200)
+{
+	//instance_destroy();
+}
